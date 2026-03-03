@@ -107,7 +107,11 @@ while robot.step(SIM_TIMESTEP) != -1:
     display.setColor(0xFF0000)
     drawn_x = pose_x * 300
     drawn_y = pose_y * 300
+    
     display.drawPixel(int(drawn_x), int(drawn_y))
+    
+    visited_pixels = set()
+    occupied_pixels = set()
 
 
     # TODO Part 3: Convert Lidar data into world coordinates
@@ -135,6 +139,21 @@ while robot.step(SIM_TIMESTEP) != -1:
     # Draw a white line between the occupied pixel and the robot’s current visited pixel.
     # Please also refer to the instruction document for more details.
     # Obstacles
+   
+            obs_x = mx * 300 # For Part 4
+            obs_y = my * 300
+    
+            visited_pixels.add((drawn_x, drawn_y))
+            occupied_pixels.add((obs_x, obs_y))
+    
+            display.setColor(0xFFFFFF) #between occupied and robot current visited
+            display.drawLine(drawn_x, drawn_y, obs_x, obs_y)
+    
+            display.setColor(0x0000FF) #blue for occupied pixels
+            display.drawPixel(obs_x, obs_y) 
+    
+            display.setColor(0xFF0000) #red for robot visited pixel
+            display.drawPixel(drawn_x, drawn_y)
 
     # Except for Part 0A (as noted in the instructions) and the "TODO Part 4", PLEASE DO NOT MODIFY ANY CODE BELOW THIS LINE
     #####################################################
