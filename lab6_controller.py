@@ -306,7 +306,8 @@ def pick_and_place(arm, block_world, bin_world):
 # ============================================================
 def main():
 
-    #Contributer: Stephen Le, Vijay Khatri
+    #Contributer: Stephen Le, Vijay Khatri, Cole Irish
+    #Lab Report and Testing by Cole Irish
 
     global ROBOT_POS
 
